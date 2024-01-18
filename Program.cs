@@ -8,6 +8,7 @@ namespace SimpleTextEditor
   class Program
   {
 
+    static string text = "";
     static void Main(string[] args)
     {
 
@@ -24,7 +25,7 @@ namespace SimpleTextEditor
     {
 
       Console.Clear();
-      Console.WriteLine("What do U wanna do?");
+      Console.WriteLine("What do U wanna do?\n");
       Console.WriteLine("1\tOpen");
       Console.WriteLine("2\tEdit");
       Console.WriteLine("3\tSave");
@@ -44,12 +45,15 @@ namespace SimpleTextEditor
     }
 
     static void Open()
-    {}
+    {
+
+      
+    }
 
     static void Edit()
     {
 
-      string text = "";
+      Console.Clear();
       Console.WriteLine("Enter your text (Press [esc] to exit)");
       Console.WriteLine("=================");
 
@@ -57,14 +61,21 @@ namespace SimpleTextEditor
 
         text += Console.ReadLine();
         text += Environment.NewLine;
-
       } while(Console.ReadKey().Key != ConsoleKey.Escape);
-      Console.WriteLine(text);
       Start();
     }
 
     static void Save()
-    {}
+    {
+
+      string? path = Console.ReadLine();
+
+      using(var file = new StreamWriter(path))
+      {
+
+        file.Write(text);
+      }
+    }
 
   }
 }
