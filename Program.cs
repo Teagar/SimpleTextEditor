@@ -39,7 +39,7 @@ namespace SimpleTextEditor
         case 0: System.Environment.Exit(0); break;
         case 1: Open(); break;
         case 2: Edit(); break;
-        case 3: Save(); break;
+        case 3: Write(); break;
         default: Start(); break;
       }
     }
@@ -65,7 +65,7 @@ namespace SimpleTextEditor
       Start();
     }
 
-    static void Save()
+    static void Write()
     {
 
       string? path = Console.ReadLine();
