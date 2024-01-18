@@ -31,7 +31,7 @@ Just a simple text editor.
 
 
 - [ ] View File
-- [ ] Write File
+- [x] Write File
 - [ ] GUI Visualization
 - [ ] Documentation
 
