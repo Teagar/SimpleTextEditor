@@ -30,7 +30,7 @@ Just a simple text editor.
 ## Functionalities
 
 
-- [ ] View File
+- [x] View File
 - [x] Write File
 - [ ] GUI Visualization
 - [ ] Documentation
