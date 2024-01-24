@@ -9,6 +9,7 @@ namespace SimpleTextEditor
   {
 
     static string text = "";
+
     static void Main(string[] args)
     {
 
@@ -16,19 +17,13 @@ namespace SimpleTextEditor
     }
 
     static void Menu()
-    {}
-
-    static void PreStart()
-    {}
-
-    static void Start()
     {
 
       Console.Clear();
       Console.WriteLine("What do U wanna do?\n");
       Console.WriteLine("1\tOpen");
       Console.WriteLine("2\tEdit");
-      Console.WriteLine("3\tSave");
+      Console.WriteLine("3\tWrite");
       Console.WriteLine("0\tExit");
       short option = 0; 
       short.TryParse(Console.ReadLine(), out option);
@@ -44,10 +39,27 @@ namespace SimpleTextEditor
       }
     }
 
+    static void Start()
+    {
+      
+      Menu();
+    }
+
+
     static void Open()
     {
 
-      
+      Console.Clear();
+      Console.Write("Set the file path: ");
+      string? path = Console.ReadLine();
+
+      if (path != null)
+        using(var file = new StreamReader(path))
+        {
+
+          string text = file.ReadToEnd();
+          Console.Write(text);
+        }
     }
 
     static void Edit()
@@ -68,13 +80,16 @@ namespace SimpleTextEditor
     static void Write()
     {
 
+      Console.Clear();
+      Console.Write("Set the file path: ");
       string? path = Console.ReadLine();
 
-      using(var file = new StreamWriter(path))
-      {
+      if (path != null)
+        using(var file = new StreamWriter(path))
+        {
 
-        file.Write(text);
-      }
+          file.Write(text);
+        }
     }
 
   }
